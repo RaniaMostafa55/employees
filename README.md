@@ -18,3 +18,4 @@ This project is to view employees data through the following steps:
 7. When "fetch data" button is pressed, a "CircularProgressIndicator" will show until the data is ready to show
 8. A "ListView.builder" will show to view employees data using ListTiles
 9. Each ListTile views a certain employee data
+10. Note that some lines were added in the "main.dart" file to ignore the SSL certificate validation process when connecting to a server.
