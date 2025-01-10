@@ -1,6 +1,5 @@
 import 'package:employees_data/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 //a class contains the design of the details card used in the app
 class DetailsCard extends StatelessWidget {
