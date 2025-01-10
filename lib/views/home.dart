@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/employee_model.dart';
 import '../services/employee_services.dart';
 import '../widgets/custom_button.dart';
+import 'employee_details.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -52,18 +53,30 @@ class _MyHomePageState extends State<MyHomePage> {
                     shrinkWrap: true,
                     itemCount: employees.length,
                     itemBuilder: (context, index) {
-                      //view each employee data
-                      return ListTile(
-                        title: Text(employees[index].firstName),
-                        leading: CircleAvatar(
-                          radius: MediaQuery.of(context).size.width * 0.06,
-                          backgroundImage:
-                              NetworkImage(employees[index].imageUrl),
-                        ),
-                        trailing: Text(
-                          employees[index].salary.toString(),
-                          style: TextStyle(
-                              color: Constants.mainColor, fontSize: 20),
+                      return InkWell(
+                        onTap: () {
+                          //go to employee details page when pressed
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return EmployeeDetails(
+                                employee: employees[index],
+                              );
+                            },
+                          ));
+                        },
+                        //view each employee data
+                        child: ListTile(
+                          title: Text(employees[index].firstName),
+                          leading: CircleAvatar(
+                            radius: MediaQuery.of(context).size.width * 0.06,
+                            backgroundImage:
+                                NetworkImage(employees[index].imageUrl),
+                          ),
+                          trailing: Text(
+                            employees[index].salary.toString(),
+                            style: TextStyle(
+                                color: Constants.mainColor, fontSize: 20),
+                          ),
                         ),
                       );
                     },
